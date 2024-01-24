@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cellular Automata</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div id="container">
+    <div>
+      <h1>Cellular Automata</h1>
+        <p>This website demonstrates Stephen Wolfram's principle of Elementary Cellular Automata.</p>
+        <p>The simulation consists of rows of cells (black/white squares), each row representing a new generation that
+          evolves from the previous one following a simple set of rules. 
+        </p>
+        <p>A cell can have one of two states (0 or 1). The state of a cell in the next generation is determined 
+          by its current state and the state of its two immediate neighbors (the cell to its left and the cell to its right).
+          At the start of the simulation (first row) only the middle cell has a value of 1.
+        </p>
+        <p>Since there are 8 possible configurations for a group of three binary cells, the ruleset can be represented as an 8-bit binary number.</p>
+        <p>
+        Read more on the official <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html" target="_blank">website</a>.
+        There you can also find illustrations of all 256 rules.
+        </p>
+    </div>
+    <div>
+      <h3>Example:</h3>
+      <img src="images/rule30.png">
+      <p> The evolution following <span class="uline">rule 30</span> (<span class="bold">30 = 00011110</span>
+        <span class="sub">2</span>) is illustrated in the table above. 
+        All possible values of the three neighboring cells are shown in the top row, 
+        and the resulting value of the central cell in the next generation is shown below.
+      </p>
+      <h3>Try it yourself:</h3>
+    </div>
+    <div>
+      <label for="rule">Ruleset (0 - 255):</label>
+      <input type="number" name="rule" id="rule" max="255" size="10" value="30"/>
+      <label>Color:</label>
+      <div class="radio-wrapper">
+        <label>
+          <input type="radio" name="choice" value="1" checked /> black and white
+        </label>
+        <label>
+          <input type="radio" name="choice" value="2" /> random colors
+        </label>
+      </div>
+      <label for="selection">Cell size:</label>
+      <select name="list" id="list">
+        <option value="2">2</option>
+        <option value="4" selected>4</option>
+        <option value="8">8</option>
+        <option value="16">16</option>
+      </select>
+      <button id="start">Start</button>
+    </div>
+    <div id="sketch-container">
+        <script src="js/sketch.js"></script>
+    </div>
+  </div>
+</body>
+</html>
